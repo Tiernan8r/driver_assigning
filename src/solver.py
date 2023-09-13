@@ -15,15 +15,12 @@ import numpy as np
 from typing import Tuple, List
 from src.datastructs import Passenger, Driver
 from src.constants import t_Solution
+import src.input as input
 
 
 def solve(drivers: List[Driver], passengers: List[Passenger]) -> t_Solution:
 
-    total_capacity = np.sum([d.capacity for d in drivers])
-    N = len(drivers)
-    M = len(passengers)
-
-    if M > total_capacity:
+    if not input.validate(drivers, passengers):
         raise ValueError("Cars don't have enough capacity for all the"
                          " passengers!")
 
@@ -34,6 +31,8 @@ def solve(drivers: List[Driver], passengers: List[Passenger]) -> t_Solution:
     passenger_assigned_tracker = {p: False for p in passengers}
     drivers_remaining_capacity = {d: d.capacity for d in drivers}
     actual_groups = {d: [] for d in drivers}
+
+    N = len(drivers)
 
     for x in X:
         n = x % N

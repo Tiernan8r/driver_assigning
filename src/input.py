@@ -14,6 +14,7 @@
 from src.datastructs import Passenger, Driver
 from typing import List
 import datetime
+import numpy as np
 
 
 def get_drivers() -> List[Driver]:
@@ -35,5 +36,7 @@ def get_passengers() -> List[Passenger]:
 
 
 def validate(drivers: List[Driver], passengers: List[Passenger]) -> bool:
-    # TODO: implement sanity check on total driver capacity >= num passengers
-    return True
+    total_capacity = np.sum([d.capacity for d in drivers])
+    M = len(passengers)
+
+    return M <= total_capacity
