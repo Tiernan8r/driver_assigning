@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Copyright 2023 Tiernan8r
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,9 +23,27 @@ from typing import List
 import src.input as input
 import src.solver as solver
 import src.output as output
-
+import argparse
+from src.constants import PROGRAM_NAME, PROGRAM_DESCRIPTION, PROGRAM_EPILOG
 
 def main(argv: List[str]):
+
+    parser = argparse.ArgumentParser(
+        prog=PROGRAM_NAME,
+        description=PROGRAM_DESCRIPTION,
+        epilog=PROGRAM_EPILOG
+    )
+
+    parser.add_argument("-g", "--gui", action="store_true", default=False, help="Use interactive GUI")
+
+    args = parser.parse_args()
+
+    if args.gui:
+        # show the GUI
+        #TODO...
+        print("GUI HERE...")
+        return
+
     drivers = input.get_drivers()
     passengers = input.get_passengers()
 

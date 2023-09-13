@@ -15,3 +15,7 @@ from typing import List, Dict
 from src.datastructs import Driver, Passenger
 
 t_Solution = Dict[Driver, List[Passenger]]
+
+PROGRAM_NAME = "driver_assigner"
+PROGRAM_DESCRIPTION = "A program to assign passengers to cars, weighting by leave time and location"
+PROGRAM_EPILOG = ""
