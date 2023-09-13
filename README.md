@@ -4,8 +4,8 @@
 [![CodeQL](https://github.com/Tiernan8r/quantum_computing_project/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Tiernan8r/quantum_computing_project/actions/workflows/codeql-analysis.yml)
 [![Pages](https://github.com/Tiernan8r/quantum_computing_project/actions/workflows/sphinx_docs_to_gh_pages.yaml/badge.svg)](https://github.com/Tiernan8r/quantum_computing_project/actions/workflows/sphinx_docs_to_gh_pages.yaml)
 
-An implementation of a quantum computer simulator in Python to simulate the 
-running of [Grover's Algorithm](https://qiskit.org/textbook/ch-algorithms/grover.html).
+Program to find the optimal assignment of passengers to drivers/cars based off of the requested leave times and the
+respective locations of the drivers and passengers.
 
 ## Table of Contents:
 
@@ -25,12 +25,20 @@ To get started with the repository, you need to do the following:
 ### Clone the Repository:
 Clone the repository to your system:
 ```console
+<<<<<<< HEAD
 $ git clone https://github.com/Tiernan8r/quantum_computing_project
+=======
+$ git clone https://github.com/Tiernan8r/driver_assigning
+>>>>>>> master
 ```
 
 Move into the cloned repository:
 ```console
+<<<<<<< HEAD
 $ cd quantum_computing_project
+=======
+$ cd driver_assigning
+>>>>>>> master
 ```
 
 Setup a python virtual environment:
@@ -66,6 +74,12 @@ $ tox -e [action]
 where `[action]` is one of `tests`/`pep8`/`mypy`
 
 ---
+<<<<<<< HEAD
+=======
+
+# TODO:
+
+>>>>>>> master
 Once you have the repository set up on your system, you can run the code using
 one of the following:
 
