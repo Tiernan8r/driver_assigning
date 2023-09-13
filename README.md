@@ -25,20 +25,12 @@ To get started with the repository, you need to do the following:
 ### Clone the Repository:
 Clone the repository to your system:
 ```console
-<<<<<<< HEAD
-$ git clone https://github.com/Tiernan8r/quantum_computing_project
-=======
 $ git clone https://github.com/Tiernan8r/driver_assigning
->>>>>>> master
 ```
 
 Move into the cloned repository:
 ```console
-<<<<<<< HEAD
-$ cd quantum_computing_project
-=======
 $ cd driver_assigning
->>>>>>> master
 ```
 
 Setup a python virtual environment:
@@ -74,12 +66,9 @@ $ tox -e [action]
 where `[action]` is one of `tests`/`pep8`/`mypy`
 
 ---
-<<<<<<< HEAD
-=======
 
 # TODO:
 
->>>>>>> master
 Once you have the repository set up on your system, you can run the code using
 one of the following:
 
