@@ -25,7 +25,8 @@ class Passenger:
 
     # _UUID: str
 
-    def __init__(self, name: str, location: Location, leave_time: datetime.datetime):
+    def __init__(self, name: str, location: Location,
+                 leave_time: datetime.datetime):
         self._name = name
         self._location = location
         self._leave_time = leave_time
@@ -42,10 +43,12 @@ class Passenger:
     def leave_time(self) -> datetime.datetime:
         return self._leave_time
 
+
 class Driver(Passenger):
     _capacity: int
 
-    def __init__(self, name: str, location: Location, leave_time: datetime.datetime, capacity: int):
+    def __init__(self, name: str, location: Location,
+                 leave_time: datetime.datetime, capacity: int):
         super().__init__(name, location, leave_time)
         self._capacity = capacity
 

@@ -14,10 +14,11 @@
 from src import solver
 from src.datastructs import Driver, Passenger
 import datetime
-import pytest
 
-def get_test_time(hour, minute = 0):
+
+def get_test_time(hour, minute=0):
     return datetime.datetime(2023, 1, 1, hour, minute)
+
 
 def test_solver_one_driver_one_passenger():
     t = get_test_time(9)
@@ -33,7 +34,7 @@ def test_solver_one_driver_one_passenger():
         d1: [p1]
     }
 
-    assert(test_solution == expected_solution)
+    assert (test_solution == expected_solution)
 
 
 def test_solver_same_leave_times():
@@ -57,7 +58,7 @@ def test_solver_same_leave_times():
         d2: [p2]
     }
 
-    assert(test_solution == expected_solution)
+    assert (test_solution == expected_solution)
 
 
 def test_solver_different_leave_times():

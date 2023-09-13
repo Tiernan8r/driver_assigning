@@ -14,7 +14,7 @@
 from src.datastructs import Passenger, Driver
 from typing import List
 import datetime
-import time
+
 
 def get_drivers() -> List[Driver]:
     t1 = datetime.datetime(2023, 1, 1, 12)
@@ -24,6 +24,7 @@ def get_drivers() -> List[Driver]:
 
     return [d1, d2]
 
+
 def get_passengers() -> List[Passenger]:
     t1 = datetime.datetime(2023, 1, 1, 9)
     p1 = Passenger("Pa", None, t1)
@@ -31,6 +32,7 @@ def get_passengers() -> List[Passenger]:
     p2 = Passenger("Pb", None, t2)
 
     return [p1, p2]
+
 
 def validate(drivers: List[Driver], passengers: List[Passenger]) -> bool:
     # TODO: implement sanity check on total driver capacity >= num passengers

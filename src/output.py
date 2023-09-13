@@ -13,6 +13,7 @@
 # limitations under the License.
 from src.constants import t_Solution
 
+
 def output(solution: t_Solution):
     print("{")
     for driver in solution.keys():

@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import numpy as np
-from typing import Tuple, List, Dict
+from typing import Tuple, List
 from src.datastructs import Passenger, Driver
 from src.constants import t_Solution
 
@@ -24,7 +24,8 @@ def solve(drivers: List[Driver], passengers: List[Passenger]) -> t_Solution:
     M = len(passengers)
 
     if M > total_capacity:
-        raise ValueError("Cars don't have enough capacity for all the passengers!")
+        raise ValueError("Cars don't have enough capacity for all the"
+                         " passengers!")
 
     A = create_matrix(drivers, passengers)
 
@@ -69,14 +70,16 @@ def create_matrix(drivers: List[Driver], passengers: List[Passenger]):
     return wL * L**2 + wT * T**2
 
 
-def create_distance_matrix(drivers: List[Driver], passengers: List[Passenger]) -> np.ndarray:
+def create_distance_matrix(drivers: List[Driver],
+                           passengers: List[Passenger]) -> np.ndarray:
     N = len(drivers)
     M = len(passengers)
 
     return np.ones((N, M))
 
 
-def create_time_difference_matrix(drivers: List[Driver], passengers: List[Passenger]) -> np.ndarray:
+def create_time_difference_matrix(drivers: List[Driver],
+                                  passengers: List[Passenger]) -> np.ndarray:
     N = len(drivers)
     M = len(passengers)
 
@@ -84,7 +87,8 @@ def create_time_difference_matrix(drivers: List[Driver], passengers: List[Passen
 
     for i in range(N):
         for j in range(M):
-            T[i, j] = (drivers[i].leave_time - passengers[j].leave_time).seconds
+            dT = drivers[i].leave_time - passengers[j].leave_time
+            T[i, j] = dT.seconds
 
     return T
 
