@@ -15,7 +15,8 @@ import csv
 import os.path
 from typing import List
 
-def interpret(filename: str, clean: bool):
+
+def interpret(filename: str, product_id_idx=1, key_idx=5, value_idx=6, num_initial_rows_to_skip=4):
     # The 'product customisation' CSV is not laid out like a CSV at all (!)
     # so need to wrangle it before it can be interpreted
 
@@ -23,60 +24,46 @@ def interpret(filename: str, clean: bool):
     # Pre-clean: Remove all ; delimiters from the text fields (only via user input in fields)
     path, fname = os.path.split(filename)
     fname_str, ext = os.path.splitext(fname)
-    cleaned_filename = os.path.join(path, fname_str + "-cleaned" + ext)
-    with open(filename, "r") as f:
-        with open(cleaned_filename, "w") as fc:
-            for l in f:
-                l = l.replace(";", "")
-                fc.write(l)
-    print(f"Cleaned the output to: {cleaned_filename}")
 
+    cleaned_content = clean_input(content)
 
-    key_idx = 5
-    value_idx = 6
-    product_id_idx = 1
-    initial_skip_rows = 4
-
+    # Keep track of the actual headers and rows in the output corrected CSV file
     actual_csv_headers = []
     actual_csv_data = []
 
-    with open(cleaned_filename, "r") as f:
-        csv_data = csv.reader(f, delimiter=",")
+    csv_data = csv.reader(cleaned_content, delimiter=",")
 
-        old_product_id = ""
-        current_row = {}
+    old_product_id = ""
+    current_row = {}
 
-        i = -1
-        for row in csv_data:
-            i = i + 1
-            if i < initial_skip_rows:
-                continue
-            if len(row) == 0:
-                continue
+    i = -1
+    for row in csv_data:
+        i = i + 1
+        if i < num_initial_rows_to_skip:
+            continue
+        if len(row) == 0:
+            continue
 
-            key = row[key_idx]
-            value = row[value_idx]
-            product_id = row[product_id_idx]
+        product_id = row[product_id_idx]
 
-            # Onto a new CSV row if the product_name no longer matches
-            if old_product_id != product_id:
-                old_product_id = product_id
-                if len(current_row) != 0:
-                    actual_csv_data.append(current_row)
-                current_row = {}
+        # Onto a new CSV row if the product_name no longer matches
+        if old_product_id != product_id:
+            old_product_id = product_id
+            # Don't save empty content rows
+            if len(current_row) != 0:
+                actual_csv_data.append(current_row)
+            current_row = {}
 
-            current_row[key] = value
+        key = row[key_idx]
+        value = row[value_idx]
+        current_row[key] = value
 
-            if key not in actual_csv_headers:
-                actual_csv_headers.append(key)
+        # Save the key to the CSV header row if not saved already
+        if key not in actual_csv_headers:
+            actual_csv_headers.append(key)
 
     full_wrangled_path = os.path.join(path, fname_str + "-wrangled" + ext)
-    with open(full_wrangled_path, "w") as f:
-        act_csv = csv.DictWriter(f, fieldnames=actual_csv_headers)
-        act_csv.writeheader()
-
-        for r in actual_csv_data:
-            act_csv.writerow(r)
+    write_csv(full_wrangled_path, actual_csv_headers, actual_csv_data)
 
 
 def read_file(filename) -> List[str]:
@@ -92,3 +79,12 @@ def clean_input(contents: List[str], strings_to_clean=";") -> List[str]:
         cleaned_contents.append(l)
 
     return cleaned_contents
+
+
+def write_csv(fname, headers, rows):
+    with open(fname, "w") as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        writer.writeheader()
+
+        for r in rows:
+            writer.writerow(r)
