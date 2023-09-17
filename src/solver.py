@@ -33,10 +33,10 @@ def solve(drivers: List[Driver], passengers: List[Passenger]) -> t_Solution:
     actual_groups = {d: [] for d in drivers}
 
     N = len(drivers)
+    M = len(passengers)
 
     for x in X:
-        n = x % N
-        m = x // N
+        n, m = np.unravel_index(x, (N, M))
 
         driver = drivers[n]
         passenger = passengers[m]
