@@ -13,12 +13,23 @@
 # limitations under the License.
 from src.constants import t_Solution
 
+TABLE_WIDTH = 72
+
 
 def output(solution: t_Solution):
-    print("{")
+    usable_width = TABLE_WIDTH - 3
+    half = usable_width // 2
+    remainder = usable_width - (half * 2)
+
+    sep = "+" + "-" * half + "+" + "-" * half + "-" * remainder + "+"
+    print(sep)
+    print("|" + "NAME".ljust(half) + "|" + "LEAVE TIME".ljust(half) + " " * remainder + "|")
+    print(sep)
+
     for driver in solution.keys():
-        print(f"{driver.name}: [")
+        time_str = driver.leave_time.time().isoformat(timespec="minutes")
+        print("|" + driver.name.ljust(half) + "|" + time_str.ljust(half) + " " * remainder + "|")
+        print(sep)
         for passenger in solution[driver]:
-            print(f"\t- {passenger.name}\n")
-        print("]\n")
-    print("}")
+            print("|" + passenger.name.ljust(usable_width) + " " * remainder + "|")
+            print(sep)
