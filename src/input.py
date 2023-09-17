@@ -19,20 +19,24 @@ import numpy as np
 
 def get_drivers() -> List[Driver]:
     t1 = datetime.datetime(2023, 1, 1, 12)
-    d1 = Driver("A", None, t1, 1)
+    d1 = Driver("D1", None, t1, 3)
     t2 = datetime.datetime(2023, 1, 1, 17, 30)
-    d2 = Driver("B", None, t2, 1)
+    d2 = Driver("D2", None, t2, 2)
 
     return [d1, d2]
 
 
 def get_passengers() -> List[Passenger]:
     t1 = datetime.datetime(2023, 1, 1, 9)
-    p1 = Passenger("Pa", None, t1)
-    t2 = datetime.datetime(2023, 1, 1, 9)
-    p2 = Passenger("Pb", None, t2)
+    p1 = Passenger("P1", None, t1)
+    t2 = datetime.datetime(2023, 1, 1, 12)
+    p2 = Passenger("P2", None, t2)
+    t3 = datetime.datetime(2023, 1, 1, 15)
+    p3 = Passenger("P3", None, t3)
+    t4 = datetime.datetime(2023, 1, 1, 18)
+    p4 = Passenger("P4", None, t4)
 
-    return [p1, p2]
+    return [p1, p2, p3, p4]
 
 
 def validate(drivers: List[Driver], passengers: List[Passenger]) -> bool:
