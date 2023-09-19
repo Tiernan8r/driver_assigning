@@ -12,10 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from src.datastructs import Passenger, Driver
-from typing import List
+from typing import List, Tuple
 import datetime
 import numpy as np
+import json
 
+
+def from_file(fname) -> Tuple[List[Driver], List[Passenger]]:
+    with open(fname) as f:
+        dat = json.load(f)
+
+    drivers = dat["drivers"]
+    passengers = dat["passengers"]
+
+    return drivers, passengers
 
 def get_drivers() -> List[Driver]:
     t1 = datetime.datetime(2023, 1, 1, 12)

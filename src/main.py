@@ -34,6 +34,8 @@ def main(argv: List[str]):
         epilog=PROGRAM_EPILOG
     )
 
+    parser.add_argument("-i", "--input-file", default="input.json", help="Input file to read from")
+    parser.add_argument("-o", "--output", default="output.json", help="File where the result will be saved")
     parser.add_argument("-g", "--gui", action="store_true", default=False, help="Use interactive GUI")
 
     args = parser.parse_args()
