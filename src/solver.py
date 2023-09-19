@@ -66,7 +66,7 @@ def create_matrix(drivers: List[Driver], passengers: List[Passenger]):
 
     wL, wT = get_weights()
 
-    return wL * L**2 + wT * T**2
+    return wL * L + wT * T
 
 
 def create_distance_matrix(drivers: List[Driver],
