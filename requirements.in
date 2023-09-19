@@ -14,4 +14,4 @@
 numpy
 scipy
 geopy # for address looking up
-flet # ui framework
+flet # ui framework (flutter based)
