@@ -4,13 +4,109 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
+annotated-types==0.5.0
+    # via pydantic
+anyio==4.0.0
+    # via httpcore
+certifi==2023.7.22
+    # via
+    #   httpcore
+    #   httpx
+colorama==0.4.6
+    # via copier
+copier==8.3.0
+    # via flet
+decorator==5.1.1
+    # via copier
+dunamai==1.18.0
+    # via copier
+flet==0.10.1
+    # via -r requirements.in
+flet-core==0.10.1
+    # via flet-runtime
+flet-runtime==0.10.1
+    # via flet
+funcy==2.0
+    # via copier
 geographiclib==2.0
     # via geopy
 geopy==2.4.0
     # via -r requirements.in
-numpy==1.25.2
+h11==0.14.0
+    # via httpcore
+httpcore==0.17.3
+    # via httpx
+httpx==0.24.1
+    # via flet-runtime
+idna==3.4
+    # via
+    #   anyio
+    #   httpx
+jinja2==3.1.2
+    # via
+    #   copier
+    #   jinja2-ansible-filters
+jinja2-ansible-filters==1.3.2
+    # via copier
+markupsafe==2.1.3
+    # via jinja2
+numpy==1.26.0
     # via
     #   -r requirements.in
     #   scipy
+oauthlib==3.2.2
+    # via flet-runtime
+packaging==23.1
+    # via
+    #   copier
+    #   dunamai
+    #   flet
+pathspec==0.11.2
+    # via copier
+plumbum==1.8.2
+    # via copier
+prompt-toolkit==3.0.36
+    # via questionary
+pydantic==2.3.0
+    # via copier
+pydantic-core==2.6.3
+    # via pydantic
+pygments==2.16.1
+    # via copier
+pypng==0.20220715.0
+    # via qrcode
+pyyaml==6.0.1
+    # via
+    #   copier
+    #   jinja2-ansible-filters
+    #   pyyaml-include
+pyyaml-include==1.3.1
+    # via copier
+qrcode==7.4.2
+    # via flet
+questionary==2.0.1
+    # via copier
+repath==0.9.0
+    # via flet-core
 scipy==1.11.2
     # via -r requirements.in
+six==1.16.0
+    # via repath
+sniffio==1.3.0
+    # via
+    #   anyio
+    #   httpcore
+    #   httpx
+typing-extensions==4.8.0
+    # via
+    #   pydantic
+    #   pydantic-core
+    #   qrcode
+watchdog==3.0.0
+    # via flet
+wcwidth==0.2.6
+    # via prompt-toolkit
+websocket-client==1.6.3
+    # via flet
+websockets==11.0.3
+    # via flet
