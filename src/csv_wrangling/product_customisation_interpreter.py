@@ -13,10 +13,10 @@
 # limitations under the License.
 import csv
 import os.path
-from typing import List
+from typing import List, Tuple, Any, Dict
 
 
-def interpret(filename: str, product_id_idx=1, key_idx=5, value_idx=6, num_initial_rows_to_skip=4):
+def interpret(filename: str, product_id_idx=1, key_idx=5, value_idx=6, num_initial_rows_to_skip=4) -> Tuple[List[str], List[Dict[str, Any]]]:
     # The 'product customisation' CSV is not laid out like a CSV at all (!)
     # so need to wrangle it before it can be interpreted
 
@@ -64,6 +64,8 @@ def interpret(filename: str, product_id_idx=1, key_idx=5, value_idx=6, num_initi
 
     full_wrangled_path = os.path.join(path, fname_str + "-wrangled" + ext)
     write_csv(full_wrangled_path, actual_csv_headers, actual_csv_data)
+
+    return actual_csv_headers, actual_csv_data
 
 
 def read_file(filename) -> List[str]:
