@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.py }}
-      - name: Install self
-        run: python -m pip install .
+      - name: Install tox
+        run: python -m pip install tox
       - name: Setup test suite
         run: tox -vv --notest
