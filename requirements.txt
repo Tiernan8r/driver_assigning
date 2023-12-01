@@ -4,30 +4,31 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
-annotated-types==0.5.0
-    # via pydantic
 anyio==4.0.0
     # via httpcore
+arrow==1.3.0
+    # via cookiecutter
+binaryornot==0.4.4
+    # via cookiecutter
 certifi==2023.7.22
     # via
     #   httpcore
     #   httpx
-colorama==0.4.6
-    # via copier
-copier==8.3.0
+    #   requests
+chardet==5.2.0
+    # via binaryornot
+charset-normalizer==3.3.2
+    # via requests
+click==8.1.7
+    # via cookiecutter
+cookiecutter==2.5.0
     # via flet
-decorator==5.1.1
-    # via copier
-dunamai==1.18.0
-    # via copier
-flet==0.10.1
+flet==0.14.0
     # via -r requirements.in
-flet-core==0.10.1
+flet-core==0.14.0
     # via flet-runtime
-flet-runtime==0.10.1
+flet-runtime==0.14.0
     # via flet
-funcy==2.0
-    # via copier
 geographiclib==2.0
     # via geopy
 geopy==2.4.0
@@ -42,14 +43,15 @@ idna==3.4
     # via
     #   anyio
     #   httpx
+    #   requests
 jinja2==3.1.2
-    # via
-    #   copier
-    #   jinja2-ansible-filters
-jinja2-ansible-filters==1.3.2
-    # via copier
+    # via cookiecutter
+markdown-it-py==3.0.0
+    # via rich
 markupsafe==2.1.3
     # via jinja2
+mdurl==0.1.2
+    # via markdown-it-py
 numpy==1.26.0
     # via
     #   -r requirements.in
@@ -57,55 +59,46 @@ numpy==1.26.0
 oauthlib==3.2.2
     # via flet-runtime
 packaging==23.1
-    # via
-    #   copier
-    #   dunamai
-    #   flet
-pathspec==0.11.2
-    # via copier
-plumbum==1.8.2
-    # via copier
-prompt-toolkit==3.0.36
-    # via questionary
-pydantic==2.3.0
-    # via copier
-pydantic-core==2.6.3
-    # via pydantic
+    # via flet
 pygments==2.16.1
-    # via copier
+    # via rich
 pypng==0.20220715.0
     # via qrcode
+python-dateutil==2.8.2
+    # via arrow
+python-slugify==8.0.1
+    # via cookiecutter
 pyyaml==6.0.1
-    # via
-    #   copier
-    #   jinja2-ansible-filters
-    #   pyyaml-include
-pyyaml-include==1.3.1
-    # via copier
+    # via cookiecutter
 qrcode==7.4.2
     # via flet
-questionary==2.0.1
-    # via copier
 repath==0.9.0
     # via flet-core
+requests==2.31.0
+    # via cookiecutter
+rich==13.7.0
+    # via cookiecutter
 scipy==1.11.2
     # via -r requirements.in
 six==1.16.0
-    # via repath
+    # via
+    #   python-dateutil
+    #   repath
 sniffio==1.3.0
     # via
     #   anyio
     #   httpcore
     #   httpx
+text-unidecode==1.3
+    # via python-slugify
+types-python-dateutil==2.8.19.14
+    # via arrow
 typing-extensions==4.8.0
-    # via
-    #   pydantic
-    #   pydantic-core
-    #   qrcode
+    # via qrcode
+urllib3==2.1.0
+    # via requests
 watchdog==3.0.0
     # via flet
-wcwidth==0.2.6
-    # via prompt-toolkit
 websocket-client==1.6.3
     # via flet
 websockets==11.0.3
